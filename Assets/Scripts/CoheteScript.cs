@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BotonScript : MonoBehaviour
+public class CoheteScript : MonoBehaviour
 {
     public GameObject botonGO;
     public CoheteScript coheteScript;
+    float coheteSpeed = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -16,17 +17,11 @@ public class BotonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(0, coheteSpeed, 0);
     }
 
-    void OnMouseDown()
+    public void Despegue()
     {
-        botonGO.SetActive(false);
-        coheteScript.Despegue();
-    }
-
-    void OnMouseUp()
-    {
-        botonGO.SetActive(true);
+        coheteSpeed = 0.1f;
     }
 }
